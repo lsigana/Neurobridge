@@ -797,15 +797,23 @@ nav {
 .video-url-field:focus { border-color: rgba(77,182,172,0.5); }
 
 /* ─── PITCH DECK ─── */
-#pitch-deck {
+#pitch-deck { 
   padding: 100px 5%;
   background: var(--white);
 }
 
-.pitch-container { margin-top: 48px; }
+.pitch-container { 
+  margin-top: 48px;
+  display: flex;
+  justify-content: center; /* centers content horizontally */
+  flex-direction: column;
+  gap: 32px; /* spacing between upload area and iframe */
+}
 
+/* Upload area styling remains mostly the same */
 .pitch-upload-area {
-  max-width: 700px; margin: 0 auto;
+  max-width: 500px; 
+  margin: 0 auto;
   background: var(--blue-light);
   border-radius: 16px;
   border: 2px dashed var(--border);
@@ -813,29 +821,62 @@ nav {
   text-align: center;
 }
 
-.pitch-upload-inner { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.pitch-upload-inner { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 16px; 
+}
 
 .pitch-doc-icon {
   width: 64px; height: 64px;
   background: var(--blue-light);
   border: 2px solid var(--border);
   border-radius: 14px;
-  display: flex; align-items: center; justify-content: center;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
   margin-bottom: 8px;
 }
 
-.pitch-doc-icon svg { width: 28px; height: 28px; stroke: var(--blue); }
+.pitch-doc-icon svg { 
+  width: 28px; 
+  height: 28px; 
+  stroke: var(--blue); 
+}
 
 .pitch-upload-area h3 { font-size: 22px; color: var(--navy); }
 .pitch-upload-area p { font-size: 15px; color: var(--text-mid); max-width: 380px; }
 
 .pitch-file-label {
-  display: inline-flex; align-items: center; gap: 8px;
+  display: inline-flex; 
+  align-items: center; 
+  gap: 8px;
   padding: 12px 28px;
-  font-size: 14px; font-weight: 600;
+  font-size: 14px; 
+  font-weight: 600;
   cursor: pointer;
 }
 .pitch-file-label input { display: none; }
+
+/* NEW: Make iframe responsive and centered */
+.pitch-container iframe {
+  width: 100%;
+  max-width: 900px; /* optional max size for large screens */
+  height: 600px; /* adjust to fit your presentation */
+  border: none;
+  border-radius: 12px;
+  background: #f0f4f8;
+  display: block;
+  margin: 0 auto; /* center the iframe */
+}
+
+/* Optional: make iframe height responsive on smaller screens */
+@media (max-width: 768px) {
+  .pitch-container iframe {
+    height: 450px;
+  }
+}
 
 /* ─── APPLICATION ─── */
 #application {
